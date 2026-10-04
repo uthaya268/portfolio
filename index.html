@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08111f" />
+  <meta name="description" content="Portfolio of Uthaya Kumar M — aspiring MERN Stack and Full Stack Developer." />
+  <title>Uthaya Kumar M | Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#08111f;--panel:#0e1a2c;--panel2:#101f34;--text:#edf4ff;--muted:#a8b7cc;--line:rgba(178,203,236,.14);--green:#72f2b3;--blue:#76a9ff;--radius:22px}
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse at 75% 0%,rgba(40,103,155,.18),transparent 34%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    nav{position:sticky;top:0;z-index:10;background:rgba(8,17,31,.83);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:"Space Grotesk",sans-serif;font-weight:700;letter-spacing:-.04em;font-size:1.2rem}
+    .brand span{color:var(--green)}
+    .links{display:flex;align-items:center;gap:25px;color:var(--muted);font-size:.92rem}
+    .links a:hover{color:var(--green)}
+    .menu{display:none;background:none;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:8px 11px}
+    .hero{min-height:650px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:70px;padding:80px 0 95px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--green);font-weight:700;font-size:.83rem;letter-spacing:.12em;text-transform:uppercase}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green)}
+    h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.12;letter-spacing:-.045em;margin:0}
+    h1{font-size:clamp(3rem,6.5vw,5.7rem);margin:20px 0}
+    h1 em{font-style:normal;color:var(--green)}
+    .hero p{color:var(--muted);font-size:1.1rem;max-width:620px;margin:0 0 28px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid var(--line);transition:.2s}
+    .btn.primary{background:var(--green);color:#06131b;border-color:var(--green)}
+    .btn:hover{transform:translateY(-3px)}
+    .btn.secondary:hover{border-color:var(--green);color:var(--green)}
+    .hero-visual{position:relative;justify-self:center;width:min(340px,100%)}
+    .portrait-frame{padding:10px;border:1px solid rgba(114,242,179,.45);border-radius:34px;background:linear-gradient(145deg,rgba(114,242,179,.12),rgba(118,169,255,.05));transform:rotate(2deg);box-shadow:0 30px 100px rgba(0,0,0,.32)}
+    .portrait-frame img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:25px;filter:saturate(.9)}
+    .floating{position:absolute;background:#122239;border:1px solid var(--line);border-radius:14px;padding:12px 15px;box-shadow:0 14px 35px #0004;font-size:.86rem}
+    .floating strong{display:block;color:var(--green);font-size:1.05rem}
+    .float-one{left:-42px;bottom:35px}.float-two{right:-34px;top:35px}
+    section{padding:76px 0}
+    .section-head{margin-bottom:32px}
+    .kicker{color:var(--green);font-size:.8rem;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin-bottom:10px}
+    h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:12px}
+    .sub{color:var(--muted);max-width:650px;margin:0}
+    .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+    .card{background:linear-gradient(145deg,rgba(16,31,52,.92),rgba(12,24,41,.9));border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+    .card p{color:var(--muted);margin:0}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .stat{padding:20px;background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:16px}
+    .stat strong{display:block;font-family:"Space Grotesk";font-size:1.8rem;color:var(--green)}
+    .stat span{color:var(--muted);font-size:.88rem}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .skill-card h3{font-size:1.1rem;margin-bottom:17px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:9px;padding:7px 10px;color:#d8e5f6;font-size:.85rem}
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+    .project:hover{transform:translateY(-5px);border-color:rgba(114,242,179,.45)}
+    .project-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+    .project-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:15px;background:rgba(114,242,179,.12);font-size:1.45rem}
+    .project-label{color:var(--green);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .project h3{font-size:1.55rem;margin-bottom:10px}
+    .project p{color:var(--muted);margin:0 0 20px}
+    .timeline{display:grid;gap:16px}
+    .timeline-item{display:grid;grid-template-columns:180px 1fr;gap:24px}
+    .timeline-date{color:var(--green);font-weight:700;font-size:.9rem;padding-top:5px}
+    .timeline-item h3{font-size:1.15rem;margin-bottom:7px}
+    .timeline-item .org{color:#d4e1f3;font-weight:600;margin-bottom:8px}
+    .timeline-item p{color:var(--muted);margin:0}
+    .edu{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .edu h3{font-size:1.15rem;margin-bottom:10px}
+    .edu .place{color:var(--muted);margin-bottom:12px}
+    .badge{display:inline-block;padding:6px 10px;border-radius:9px;background:rgba(114,242,179,.1);color:var(--green);font-size:.85rem;font-weight:700}
+    .contact-box{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;background:linear-gradient(120deg,rgba(114,242,179,.1),rgba(118,169,255,.08));border:1px solid rgba(114,242,179,.22);border-radius:26px;padding:35px}
+    .contact-box p{color:var(--muted);margin:10px 0 0}
+    .contact-actions{display:flex;flex-direction:column;gap:10px}
+    footer{padding:25px 0 35px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
+    .footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .certs{color:var(--muted)}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;gap:55px;padding-top:65px;text-align:center}.hero p{margin-left:auto;margin-right:auto}.actions{justify-content:center}.hero-visual{width:270px}.float-one{left:-28px}.float-two{right:-22px}.about-grid,.skills-grid{grid-template-columns:1fr 1fr}.about-grid .card:first-child{grid-column:1/-1}.contact-box{grid-template-columns:1fr}.contact-actions{flex-direction:row;flex-wrap:wrap}}
+    @media(max-width:600px){.wrap{width:min(100% - 28px,1120px)}.nav-inner{height:66px}.menu{display:block}.links{display:none;position:absolute;top:66px;left:0;right:0;padding:20px;background:#0b1728;border-bottom:1px solid var(--line);flex-direction:column;gap:18px}.links.open{display:flex}.hero{min-height:auto;padding:62px 0 65px}section{padding:56px 0}.about-grid,.skills-grid,.project-grid,.edu{grid-template-columns:1fr}.about-grid .card:first-child{grid-column:auto}.timeline-item{grid-template-columns:1fr;gap:4px}.timeline-date{padding:0}.card{padding:22px}.contact-box{padding:25px}.contact-actions .btn{width:100%}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home">UK<span>.</span></a>
+      <button class="menu" id="menuBtn" aria-label="Toggle navigation">☰</button>
+      <div class="links" id="navLinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Open to opportunities</div>
+        <h1>Hi, I'm<br><em>Uthaya Kumar.</em></h1>
+        <p>Aspiring MERN Stack &amp; Full Stack Developer building responsive web experiences and practical applications. I enjoy turning ideas into useful, user-friendly digital products.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my work <span>↗</span></a>
+          <a class="btn secondary" href="assets/Uthaya_Kumar_Resume.pdf" download>Download résumé ↓</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="portrait-frame"><img src="assets/profile.png" alt="Portrait of Uthaya Kumar M"></div>
+        <div class="floating float-one"><strong>7.63 CGPA</strong><span>Current academic score</span></div>
+        <div class="floating float-two"><strong>MERN + Flutter</strong><span>Web &amp; mobile development</span></div>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">A little about me</div><h2>Building with curiosity.<br>Learning by creating.</h2></div>
+        <div class="about-grid">
+          <div class="card"><p>I'm an Information Technology student at Dr. Sivanthi Aditanar College of Engineering, Tiruchendur, with a focus on full-stack web development and mobile applications. Through projects like EduTrade and BusBuddy, I've worked with modern frontend technologies, backend APIs, and databases. I'm passionate about solving problems, improving usability, and continuously learning tools that help me build better software.</p></div>
+          <div class="stats">
+            <div class="stat"><strong>02</strong><span>Featured projects</span></div>
+            <div class="stat"><strong>02</strong><span>Internship experiences</span></div>
+            <div class="stat"><strong>2027</strong><span>Expected graduation</span></div>
+            <div class="stat"><strong>3+</strong><span>Core technology areas</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">My toolkit</div><h2>Skills &amp; technologies</h2><p class="sub">Tools I use to design, build, connect, and improve applications.</p></div>
+        <div class="skills-grid">
+          <div class="card skill-card"><h3>Frontend</h3><div class="chips"><span class="chip">React.js</span><span class="chip">Flutter</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript ES6+</span><span class="chip">Bootstrap</span><span class="chip">Responsive Design</span></div></div>
+          <div class="card skill-card"><h3>Backend &amp; data</h3><div class="chips"><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">REST APIs</span><span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">API Integration</span></div></div>
+          <div class="card skill-card"><h3>Languages &amp; tools</h3><div class="chips"><span class="chip">C++</span><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">VS Code</span><span class="chip">Postman</span><span class="chip">UI/UX Design</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Selected work</div><h2>Projects I’ve worked on</h2><p class="sub">Practical applications built to address real student needs.</p></div>
+        <div class="project-grid">
+          <article class="card project">
+            <div class="project-top"><div class="project-icon">🛍️</div><span class="project-label">MERN Stack</span></div>
+            <h3>EduTrade</h3>
+            <p>A student-to-student marketplace for buying and selling books, laboratory equipment, stationery, project materials, and electronics—helping students find useful resources at accessible prices.</p>
+            <div class="chips"><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">MongoDB</span></div>
+          </article>
+          <article class="card project">
+            <div class="project-top"><div class="project-icon">🚌</div><span class="project-label">Flutter App</span></div>
+            <h3>BusBuddy</h3>
+            <p>A college bus tracking application for students and staff, with bus routes, stop notifications, attendance management, and updates through a connected backend.</p>
+            <div class="chips"><span class="chip">Flutter</span><span class="chip">Node.js</span><span class="chip">MySQL</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Learning in practice</div><h2>Internship experience</h2></div>
+        <div class="timeline">
+          <div class="card timeline-item">
+            <div class="timeline-date">Mar 2026 – Apr 2026</div>
+            <div><h3>IBM Cognos Analytics Intern</h3><div class="org">IBM · Remote</div><p>Built interactive dashboards using IBM Cognos Analytics, performed data visualization and business reporting with real-world datasets, and gained practical knowledge in Business Intelligence and Analytics.</p></div>
+          </div>
+          <div class="card timeline-item">
+            <div class="timeline-date">1 month · Offline</div>
+            <div><h3>MERN Stack Development Intern</h3><div class="org">Bevy Wise Networks</div><p>Developed responsive full-stack web applications using React.js, Node.js, Express.js, MongoDB, and REST APIs. Practiced authentication, CRUD operations, database connectivity, and application usability improvements.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Education</div><h2>My academic background</h2></div>
+        <div class="edu">
+          <div class="card"><span class="badge">2023 – 2027</span><h3 style="margin-top:16px">B.Tech — Information Technology</h3><div class="place">Dr. Sivanthi Aditanar College of Engineering, Tiruchendur</div><strong style="color:var(--green)">CGPA: 7.63 (Current)</strong></div>
+          <div class="card"><span class="badge">Completed 2023</span><h3 style="margin-top:16px">Higher Secondary Certificate (HSC)</h3><div class="place">Schaffter Higher Secondary School, Tirunelveli</div><strong style="color:var(--green)">Percentage: 79%</strong></div>
+        </div>
+        <div class="card" style="margin-top:16px"><h3 style="font-size:1.05rem;margin-bottom:12px">Certifications &amp; learning</h3><p class="certs">IBM Cognos Analytics Internship · MERN Stack Development Internship · Python Programming · React.js Development · MongoDB Fundamentals · Git &amp; GitHub · REST API Development</p><p class="certs" style="margin-top:10px">Languages: Tamil (Native), English (Professional)</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div><div class="kicker">Let’s connect</div><h2>Have a role or project in mind?</h2><p>I’m excited to connect about internships, entry-level opportunities, and software projects.</p></div>
+          <div class="contact-actions">
+            <a class="btn primary" href="mailto:uk8388371@gmail.com">✉ Email me</a>
+            <a class="btn secondary" href="tel:+916369943595">☎ +91 6369943595</a>
+            <a class="btn secondary" href="assets/Uthaya_Kumar_Resume.pdf" target="_blank" rel="noopener">View résumé ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Uthaya Kumar M. Built with care.</span><a href="#home">Back to top ↑</a></div></footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
